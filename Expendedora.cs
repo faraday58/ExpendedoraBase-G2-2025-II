@@ -3,30 +3,60 @@
 namespace ExpendedoraBase_G2_2025_II
 {
     // public -> modificador de acceso
-    public class Expendedora
+    public abstract class Expendedora
     {
         //private -> Modificadode acceso para los atributos
         private string _marca;
         private byte _temperatura;
         private float _precio; //Los atributos toman un valor por default
 
-        /*
+        public byte Temperatura { 
+            get => _temperatura;
+            set
+            {
+                if (value < 5 || value > 16)
+                {
+                    _temperatura = 14;
+                }
+                else
+                {
+                    _temperatura = value;
+                }
+                
+            }
+        }
+        #region Constructor 
         public Expendedora()
         {
+            _marca = "AMS";
+            /*
             _precio = 25;
             _marca = "AMS";
-            _temperatura= 14; // [°C]
+            Temperatura= 14; // [°C]
             Console.WriteLine("Bienvenido");
             Console.WriteLine("{0}", _marca);
             ClearScreenTimer(1000);
-            Console.WriteLine("Temperatura: {0}", _temperatura);
+            Console.WriteLine("Temperatura: {0} [ºC]", Temperatura);
             ClearScreenTimer(2000);
             string codigo =MostrarProductos();
             ClearScreenTimer(3000);
             MostrarPrecio(codigo);
+            */
+            Console.WriteLine("Marca {0}", _marca);
+        }
+
+        public Expendedora(bool mantenimiento)
+        {
+            Console.WriteLine("Equipo en Modo mantenimiento");
+            Console.WriteLine("Temperatura: {0} [ºC]", Temperatura);
+            ClearScreenTimer(3000);
+            Console.WriteLine("Ingresa la nueva temperatura");
+            Temperatura = byte.Parse( Console.ReadLine() );
+
+            Console.WriteLine("Temperatura actualizada {0} [ºC] ", Temperatura);
 
         }
-        */
+        #endregion
         private void ClearScreenTimer(int timer)
         {
             Thread.Sleep(timer);
