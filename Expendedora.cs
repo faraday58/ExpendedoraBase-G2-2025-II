@@ -7,10 +7,10 @@ namespace ExpendedoraBase_G2_2025_II
     {
         //private -> Modificadode acceso para los atributos
         private string _marca;
-        private byte _temperatura;
+        internal byte _temperatura;
         private float _precio; //Los atributos toman un valor por default
 
-        public byte Temperatura { 
+        public virtual byte Temperatura { 
             get => _temperatura;
             set
             {
@@ -57,7 +57,7 @@ namespace ExpendedoraBase_G2_2025_II
 
         }
         #endregion
-        private void ClearScreenTimer(int timer)
+        internal void ClearScreenTimer(int timer)
         {
             Thread.Sleep(timer);
             Console.Clear();
